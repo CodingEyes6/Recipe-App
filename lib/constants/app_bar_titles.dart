@@ -1,0 +1,1 @@
+const categoryScreenAppBarTitle = "Pakwana Meals";
