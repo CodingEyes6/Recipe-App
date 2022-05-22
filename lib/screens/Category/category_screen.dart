@@ -11,12 +11,10 @@ class CategoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
        appBar: buildAppBar(categoryScreenAppBarTitle),
-      body: Container(
-        margin: allMargin10,
-        child: GridView(
-          gridDelegate: gridDelegate,
-          children: categoryItemsList(),
-        ),
+      body: GridView(
+        padding: allPadding10,
+        gridDelegate: gridDelegate,
+        children: categoryItemsList(),
       ),
     );
   }
