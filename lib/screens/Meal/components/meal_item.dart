@@ -4,8 +4,10 @@ import '../../../styles/textstyles.dart';
 import '../../../constants/border_radius.dart';
 import '../../../components/rouned_image.dart';
 import '../../../models/meals.dart';
+import '../../../Routes/routes.dart';
 
 class MealItem extends StatelessWidget {
+  final String id;
   final String title;
   final String imageUrl;
   final int duration;
@@ -13,6 +15,7 @@ class MealItem extends StatelessWidget {
   final Affordability affordability;
 
   const MealItem({
+    required this.id,
     required this.title,
     required this.imageUrl,
     required this.duration,
@@ -20,43 +23,44 @@ class MealItem extends StatelessWidget {
     required this.affordability,
   });
 
+  String get complexityText {
+    switch (complexity) {
+      case Complexity.Simple:
+        return 'simple';
+      case Complexity.Challenging:
+        return 'challenging';
+      case Complexity.Hard:
+        return 'hard';
+      default:
+        return 'unKnown';
+    }
+  }
 
- String get complexityText{
+  String get affordabilityText {
+    switch (affordability) {
+      case Affordability.Affordable:
+        return 'affordable';
+      case Affordability.Pricey:
+        return 'pricey';
+      case Affordability.Luxurious:
+        return 'Expensive';
+      default:
+        return 'unKnown';
+    }
+  }
 
-switch (complexity) {
-  case Complexity.Simple:
-  return 'simple';
-    case Complexity.Challenging:
-  return 'challenging';
-    case Complexity.Hard:
-  return 'hard';
-  default:
-  return 'unKnown';
-}
-
- }
-
- String get affordabilityText{
-
-switch (affordability) {
-  case Affordability.Affordable:
-  return 'affordable';
-    case Affordability.Pricey:
-  return 'pricey';
-    case Affordability.Luxurious:
-  return 'Expensive';
-  default:
-  return 'unKnown';
-}
-
- }
-
-  void selectMeal() {}
+  void selectMeal(BuildContext ctx) {
+    AppRoutes.goToNextPageWIthArgs(
+      ctx,
+      AppRoutes.MEAL_DETAIL_SCREEN,
+      data: id,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: selectMeal,
+      onTap: () => selectMeal(context),
       child: customCard(),
     );
   }
@@ -117,28 +121,29 @@ switch (affordability) {
 
   Widget buildBottomPart() {
     return Padding(
-      
       padding: allPadding20,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           buildItem('$duration min', Icons.schedule),
-           buildItem(complexityText, Icons.work),
-             buildItem(complexityText, Icons.attach_money),
+          buildItem(complexityText, Icons.work),
+          buildItem(complexityText, Icons.attach_money),
         ],
       ),
     );
   }
 
   Widget buildItem(String text, IconData icon) {
-    
     return Row(
       children: [
-          Icon(icon),
-       
-        const SizedBox(width: 6,),
-       Text(text),
-         const SizedBox(width: 6,),
+        Icon(icon),
+        const SizedBox(
+          width: 6,
+        ),
+        Text(text),
+        const SizedBox(
+          width: 6,
+        ),
       ],
     );
   }

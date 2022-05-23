@@ -8,13 +8,36 @@ import 'package:flutter/material.dart';
 
 class AppRoutes {
 
-static const CATEGORY_SCREEN = "Categories";
+static const CATEGORY_SCREEN = "Category";
 static const HOME_SCREEN = "/";
+static const MEAL_DETAIL_SCREEN = "MealDetail";
 
 
 
- static void goToNextPage(BuildContext ctx,String path,Map<String,Object> data){
-  Navigator.of(ctx).pushNamed(path,arguments: data);
+ static void goToNextPage(BuildContext ctx,String path,{Map<String,Object>? data}){
+
+ if(data != null){
+    Navigator.of(ctx).pushNamed(path,arguments: data);
+    return;
+ }
+
+   Navigator.of(ctx).pushNamed(path);
+ 
+
+ 
+ }
+
+ static void goToNextPageWIthArgs(BuildContext ctx,String path,{Object? data}){
+
+ if(data != null){
+    Navigator.of(ctx).pushNamed(path,arguments: data);
+    return;
+ }
+
+   Navigator.of(ctx).pushNamed(path);
+ 
+
+ 
  }
 
 
