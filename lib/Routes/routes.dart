@@ -11,6 +11,8 @@ class AppRoutes {
 static const CATEGORY_SCREEN = "Category";
 static const HOME_SCREEN = "/";
 static const MEAL_DETAIL_SCREEN = "MealDetail";
+static const FAVOURITE_SCREEN = "FavoutiteCategory";
+static const MEAL_SCREEN = "Meal Screen";
 
 
 

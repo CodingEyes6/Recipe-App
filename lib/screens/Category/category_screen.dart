@@ -9,8 +9,7 @@ import '../../constants/padding_constants.dart';
 class CategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: buildAppBar(categoryScreenAppBarTitle), body: body());
+    return body();
   }
 
   Widget body() {

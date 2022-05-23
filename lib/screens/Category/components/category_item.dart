@@ -21,7 +21,7 @@ class CategoryItem extends StatelessWidget {
 
   void selectCategory(BuildContext context) {
     AppRoutes.goToNextPage(
-        context, AppRoutes.CATEGORY_SCREEN, data: selectedCategoryData());
+        context, AppRoutes.MEAL_SCREEN, data: selectedCategoryData());
   }
 
   @override
