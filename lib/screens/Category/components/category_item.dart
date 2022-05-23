@@ -1,9 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import '../../../styles/textstyles.dart';
 import 'container_background.dart';
-import 'styles.dart';
-import 'package:meals_app/constants/border_radius.dart';
+import '../../../constants/border_radius.dart';
 import '../../../Colors/colors.dart';
 import '../../../constants/padding_constants.dart';
 import '../../../Routes/routes.dart';
@@ -46,7 +46,7 @@ class CategoryItem extends StatelessWidget {
   Widget categoryText() {
     return Text(
       title,
-      style: categoryTitleTextStyle,
+     style: titleTextStyle,
     );
   }
 }

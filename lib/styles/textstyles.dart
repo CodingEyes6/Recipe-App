@@ -14,4 +14,10 @@ const titleTextStyle = TextStyle(
   fontWeight: FontWeight.bold
 );
 
+const mealsTitleTextStyle = TextStyle(
+  fontSize: 26,
+  color: Colors.white,
+ 
+);
+
 

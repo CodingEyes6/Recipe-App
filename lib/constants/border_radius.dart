@@ -7,3 +7,5 @@ var borderCircular20 = BorderRadius.circular(20);
 var borderCircular25 = BorderRadius.circular(25);
 var borderCircular30 = BorderRadius.circular(30);
  
+
+ const radiousCircular15 = Radius.circular(15);

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/appBar.dart';
 
-import 'meals_list.dart';
+import 'components/meals_list.dart';
 
 class MealScreen extends StatelessWidget {
 

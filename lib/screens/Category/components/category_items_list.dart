@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../category_data.dart';
+import '../data/category_data.dart';
 import 'category_item.dart';
 
 List<Widget> categoryItemsList() {

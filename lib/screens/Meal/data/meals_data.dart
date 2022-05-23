@@ -1,7 +1,7 @@
 
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
-import '../../models/meals.dart';
+import '../../../models/meals.dart';
 
  const DUMMY_MEALS = [
   Meal(
