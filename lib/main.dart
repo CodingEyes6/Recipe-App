@@ -7,9 +7,7 @@ import 'styles/textstyles.dart';
 import 'Routes/routes.dart';
 import './screens/Meal/meals_screen.dart';
 
-void main(List<String> args) {
-  runApp(App());
-}
+void main() => runApp(App());
 
 class App extends StatelessWidget {
   @override
