@@ -1,44 +1,62 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import '../Category/category_screen.dart';
+
 import '../favourite/favourite_screen.dart';
+import '../Category/category_screen.dart';
+import '../../Colors/colors.dart';
 
 class TabScreen extends StatefulWidget {
-  var noTabs = 2;
-
   @override
   State<TabScreen> createState() => _TabScreenState();
 }
 
 class _TabScreenState extends State<TabScreen> {
+  final List<Map<String, Object>> _pages = [
+    {
+      'page': CategoryScreen(),
+      'title' : 'Category'
+    },
+    {
+      'page': FavouriteScreen(),
+      'title' : 'Favourite'
+    }
+  ];
+
+  int _selectedPageIndex = 0;
+
+  void _selectPage(int index) {
+    setState(() {
+      _selectedPageIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: widget.noTabs,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Meals"),
-          bottom: TabBar(tabs: buildTabs()),
-
-        ),
-        body: TabBarView(children: [
-          CategoryScreen(),
-          FavouriteScreen()
-        ]),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text( _pages[_selectedPageIndex]['title'] as String),
+      ),
+      body: _pages[_selectedPageIndex]['page'] as Widget,
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: _selectPage,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: accentColor,
+        backgroundColor: primaryColor,
+        currentIndex: _selectedPageIndex,
+        items: botttomTabBarItemsList(),
       ),
     );
   }
 
-List<Widget> buildTabs(){
-  return [
-    tabItem(Icons.category, 'categories'),
-    tabItem(Icons.star, 'Favourites')
-  ];
-}
+  List<BottomNavigationBarItem> botttomTabBarItemsList() {
+    return [
+      buildBottomBarItem(Icons.category, 'Categories'),
+      buildBottomBarItem(Icons.favorite, 'Favourite'),
+    ];
+  }
 
-}
-
-Widget tabItem(IconData icon,String text){
-  return Tab(icon: Icon(icon),text: text,);
+  BottomNavigationBarItem buildBottomBarItem(IconData icon, String text) {
+    return BottomNavigationBarItem(icon: Icon(icon), label: text);
+  }
 }

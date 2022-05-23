@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'components/category_items_list.dart';
-import '../../components/appBar.dart';
-import '../../constants/app_bar_titles.dart';
+
+
 import '../../constants/padding_constants.dart';
 
 class CategoryScreen extends StatelessWidget {
