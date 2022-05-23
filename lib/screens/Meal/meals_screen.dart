@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 import '../../components/appBar.dart';
 
+import 'meals_list.dart';
+
 class MealScreen extends StatelessWidget {
 
 late Map<String,String> args;
@@ -15,9 +17,16 @@ late Map<String,String> args;
   @override
   Widget build(BuildContext context) {
   routeArgs(context);
+  final categoryTitle = args['title' ];
+   final categoryID = args['id' ];
     return Scaffold(
-      appBar: buildAppBar(args['title' ]!),
-      body: Center(child: Text(args['title']!)),
+      appBar: buildAppBar(categoryTitle!),
+      body: body(context,categoryID!),
     );
+  }
+
+
+  Widget body(BuildContext context,String categoryID){
+    return mealsList(context, categoryID);
   }
 }
