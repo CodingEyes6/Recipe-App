@@ -16,11 +16,15 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: globalTheme,
-      home: CategoryScreen(),
-      routes: {
-        AppRoutes.CATEGORY_SCREEN: (ctx) => MealScreen(),
-      },
+      routes: routes(context),
     );
+  }
+
+  Map<String, Widget Function(BuildContext)> routes(BuildContext ctx) {
+    return {
+      AppRoutes.CATEGORY_SCREEN: (ctx) => MealScreen(),
+      AppRoutes.HOME_SCREEN: (ctx) => CategoryScreen(),
+    };
   }
 
   var globalTheme = ThemeData(

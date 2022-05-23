@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class AppRoutes {
 
 static const CATEGORY_SCREEN = "Categories";
-
+static const HOME_SCREEN = "/";
 
 
 
