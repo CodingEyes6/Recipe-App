@@ -5,18 +5,24 @@ import '../../../styles/textstyles.dart';
 import 'container_background.dart';
 import '../../../constants/border_radius.dart';
 import '../../../Colors/colors.dart';
-import '../../../constants/padding_constants.dart';
+import '../../../constants/padding.dart';
 import '../../../Routes/routes.dart';
 
 class CategoryItem extends StatelessWidget {
-  final String id;
-  final String title;
-  final Color color;
 
-  const CategoryItem(this.id, this.title, this.color);
+
+  static const argsId = 'id';
+  static const argsTitle = 'title';
+  
+
+  final String categoryId;
+  final String categoryTitle;
+  final Color categoryColor;
+
+  const CategoryItem(this.categoryId, this.categoryTitle, this.categoryColor);
 
   Map<String, String> selectedCategoryData() {
-    return {'id': id, 'title': title};
+    return {CategoryItem.argsId: categoryId, CategoryItem.argsTitle: categoryTitle};
   }
 
   void selectCategory(BuildContext context) {
@@ -38,14 +44,14 @@ class CategoryItem extends StatelessWidget {
     return Container(
       padding: allPadding10,
       alignment: Alignment.center,
-      decoration: containerBackground(color: color),
+      decoration: containerBackground(color: categoryColor),
       child: categoryText(),
     );
   }
 
   Widget categoryText() {
     return Text(
-      title,
+      categoryTitle,
      style: titleTextStyle,
     );
   }

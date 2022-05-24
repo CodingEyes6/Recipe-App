@@ -2,9 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'components/category_items_list.dart';
-
-
-import '../../constants/padding_constants.dart';
+import '../../constants/padding.dart';
 
 class CategoryScreen extends StatelessWidget {
   @override
@@ -17,6 +15,7 @@ class CategoryScreen extends StatelessWidget {
       padding: allPadding10,
       gridDelegate: gridDelegate,
       children: categoryItemsList(),
+      
     );
   }
 

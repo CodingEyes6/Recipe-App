@@ -4,24 +4,24 @@
 import 'package:flutter/material.dart';
 
 import '../../components/appBar.dart';
-
+import '../Category/components/category_item.dart';
 import 'components/meals_list.dart';
 
 class MealScreen extends StatelessWidget {
 
 late Map<String,String> args;
 
- void routeArgs(BuildContext context){
-   args =  ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-}
+ 
   @override
   Widget build(BuildContext context) {
-  routeArgs(context);
-  final categoryTitle = args['title' ];
-   final categoryID = args['id' ];
+    
+  Map<String,String> args =  ModalRoute.of(context)!.settings.arguments as Map<String, String>;
+  String categoryTitle = args[CategoryItem.argsTitle] as String;
+  String categoryID = args[CategoryItem.argsId] as String;
+
     return Scaffold(
-      appBar: buildAppBar(categoryTitle!),
-      body: body(context,categoryID!),
+      appBar: buildAppBar(categoryTitle),
+      body: body(context,categoryID),
     );
   }
 

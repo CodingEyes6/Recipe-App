@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../constants/padding_constants.dart';
+import '../../../constants/padding.dart';
 import '../../../styles/textstyles.dart';
 import '../../../constants/border_radius.dart';
 import '../../../components/rouned_image.dart';
@@ -7,24 +7,24 @@ import '../../../models/meals.dart';
 import '../../../Routes/routes.dart';
 
 class MealItem extends StatelessWidget {
-  final String id;
-  final String title;
-  final String imageUrl;
-  final int duration;
-  final Complexity complexity;
-  final Affordability affordability;
+  final String mealId;
+  final String mealTitle;
+  final String mealImageUrl;
+  final int mealDuration;
+  final Complexity mealComplexity;
+  final Affordability mealAffordability;
 
   const MealItem({
-    required this.id,
-    required this.title,
-    required this.imageUrl,
-    required this.duration,
-    required this.complexity,
-    required this.affordability,
+    required this.mealId,
+    required this.mealTitle,
+    required this.mealImageUrl,
+    required this.mealDuration,
+    required this.mealComplexity,
+    required this.mealAffordability,
   });
 
   String get complexityText {
-    switch (complexity) {
+    switch (mealComplexity) {
       case Complexity.Simple:
         return 'simple';
       case Complexity.Challenging:
@@ -37,7 +37,7 @@ class MealItem extends StatelessWidget {
   }
 
   String get affordabilityText {
-    switch (affordability) {
+    switch (mealAffordability) {
       case Affordability.Affordable:
         return 'affordable';
       case Affordability.Pricey:
@@ -53,7 +53,7 @@ class MealItem extends StatelessWidget {
     AppRoutes.goToNextPageWIthArgs(
       ctx,
       AppRoutes.MEAL_DETAIL_SCREEN,
-      data: id,
+      data: mealId,
     );
   }
 
@@ -97,7 +97,7 @@ class MealItem extends StatelessWidget {
       const BorderRadius.only(
           topLeft: radiousCircular15, topRight: radiousCircular15),
       Image.network(
-        imageUrl,
+        mealImageUrl,
         height: 250,
         width: double.infinity,
         fit: BoxFit.cover,
@@ -111,7 +111,7 @@ class MealItem extends StatelessWidget {
       color: Colors.black54,
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
       child: Text(
-        title,
+        mealTitle,
         style: mealsTitleTextStyle,
         softWrap: true,
         overflow: TextOverflow.fade,
@@ -125,7 +125,7 @@ class MealItem extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          buildItem('$duration min', Icons.schedule),
+          buildItem('$mealDuration min', Icons.schedule),
           buildItem(complexityText, Icons.work),
           buildItem(complexityText, Icons.attach_money),
         ],

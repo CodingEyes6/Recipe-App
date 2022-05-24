@@ -13,7 +13,7 @@ class MealDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-  final args =  ModalRoute.of(context)!.settings.arguments as String;
+  String args =  ModalRoute.of(context)!.settings.arguments as String;
 final selectedMeal = DUMMY_MEALS.firstWhere((meal) => meal.id == args);
 
     return Scaffold(

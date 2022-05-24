@@ -6,6 +6,7 @@ AppBar buildAppBar(String titile){
 
 return AppBar(
   title: Text(titile),
+  
 );
 
 }

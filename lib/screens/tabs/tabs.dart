@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../favourite/favourite_screen.dart';
 import '../Category/category_screen.dart';
 import '../../Colors/colors.dart';
+import './Drawer/drawer.dart';
 
 class TabScreen extends StatefulWidget {
   @override
@@ -38,16 +39,23 @@ class _TabScreenState extends State<TabScreen> {
         title: Text( _pages[_selectedPageIndex]['title'] as String),
       ),
       body: _pages[_selectedPageIndex]['page'] as Widget,
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: buildBottomNavBar(),
+      drawer: MainDrawer(),
+    );
+  }
+
+
+ 
+ BottomNavigationBar buildBottomNavBar(){
+   return BottomNavigationBar(
         onTap: _selectPage,
         unselectedItemColor: Colors.white,
         selectedItemColor: accentColor,
         backgroundColor: primaryColor,
         currentIndex: _selectedPageIndex,
         items: botttomTabBarItemsList(),
-      ),
-    );
-  }
+      );
+ }
 
   List<BottomNavigationBarItem> botttomTabBarItemsList() {
     return [
