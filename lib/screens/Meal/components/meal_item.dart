@@ -6,6 +6,7 @@ import '../../../components/rouned_image.dart';
 import '../../../models/meals.dart';
 import '../../../Routes/routes.dart';
 
+
 class MealItem extends StatelessWidget {
   final String mealId;
   final String mealTitle;
@@ -13,15 +14,16 @@ class MealItem extends StatelessWidget {
   final int mealDuration;
   final Complexity mealComplexity;
   final Affordability mealAffordability;
+  final Function removeMeal;
 
-  const MealItem({
-    required this.mealId,
-    required this.mealTitle,
-    required this.mealImageUrl,
-    required this.mealDuration,
-    required this.mealComplexity,
-    required this.mealAffordability,
-  });
+  const MealItem(
+      {required this.mealId,
+      required this.mealTitle,
+      required this.mealImageUrl,
+      required this.mealDuration,
+      required this.mealComplexity,
+      required this.mealAffordability,
+      required this.removeMeal});
 
   String get complexityText {
     switch (mealComplexity) {
@@ -50,11 +52,21 @@ class MealItem extends StatelessWidget {
   }
 
   void selectMeal(BuildContext ctx) {
-    AppRoutes.goToNextPageWIthArgs(
-      ctx,
-      AppRoutes.MEAL_DETAIL_SCREEN,
-      data: mealId,
-    );
+    Navigator.of(ctx)
+        .pushNamed(AppRoutes.MEAL_DETAIL_SCREEN, arguments: mealId)
+        .then(
+          (value) {
+            if(value != null){
+              removeMeal(value);
+            }
+          },
+        );
+
+    // AppRoutes.goToNextPageWIthArgs(
+    //   ctx,
+    //   AppRoutes.MEAL_DETAIL_SCREEN,
+    //   data: mealId,
+    // );
   }
 
   @override

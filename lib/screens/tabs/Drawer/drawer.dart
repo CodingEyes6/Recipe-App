@@ -54,7 +54,7 @@ class MainDrawer extends StatelessWidget {
   }
 
   void openNewScreen(BuildContext ctx,String path) {
-    AppRoutes.goToNextPage(ctx, path);
+    AppRoutes.replacePage(ctx, path);
   }
 
   Widget buildItem(IconData icon, String text, VoidCallback tapHandler) {

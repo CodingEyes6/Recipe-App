@@ -9,9 +9,12 @@ import 'components/meals_list.dart';
 
 class MealScreen extends StatelessWidget {
 
+ 
+
 late Map<String,String> args;
 
- 
+
+
   @override
   Widget build(BuildContext context) {
     
@@ -21,12 +24,11 @@ late Map<String,String> args;
 
     return Scaffold(
       appBar: buildAppBar(categoryTitle!),
-      body: body(context,categoryID!),
+      body: body(categoryID!),
     );
   }
 
-
-  Widget body(BuildContext context,String categoryID){
-    return mealsList(context, categoryID);
+  Widget body(String categoryID){
+    return MealsList(categoryID);
   }
 }

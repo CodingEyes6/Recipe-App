@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import '../tabs/Drawer/drawer.dart';
+
+import '../../components/appBar.dart';
+
 
 class FilterScreen extends StatelessWidget {
 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: buildAppBar('Filters'),
+      drawer: MainDrawer(),
+    );
   }
 }

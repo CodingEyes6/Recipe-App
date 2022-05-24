@@ -42,5 +42,28 @@ static const FILTER_SCREEN = "FilterScreen";
  
  }
 
+ static void replacePage(BuildContext ctx,String path){
+
+ 
+
+   Navigator.of(ctx).pushReplacementNamed(path);
+ 
+
+ 
+ }
+
+ static void deleteCurrentPage(BuildContext ctx,{Object? data}){
+
+ if(data != null){
+    Navigator.of(ctx).pop(data);
+    return;
+ }
+
+   Navigator.of(ctx).pop();
+ 
+
+ 
+ }
+
 
 }
