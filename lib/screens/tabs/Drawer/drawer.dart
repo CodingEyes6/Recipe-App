@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meals_app/Routes/routes.dart';
 import '../../../Colors/colors.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -11,7 +12,7 @@ class MainDrawer extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          bottomPart()
+          bottomPart(context)
         ],
       ),
     );
@@ -35,16 +36,28 @@ class MainDrawer extends StatelessWidget {
     );
   }
 
-  Widget bottomPart() {
+  Widget bottomPart(BuildContext ctx) {
     return Column(
       children: [
-        buildItem(Icons.restaurant, 'Meals'),
-          buildItem(Icons.settings ,'Filters'),
+        buildItem(
+          Icons.restaurant,
+          'Meals',
+          () => openNewScreen(ctx,AppRoutes.HOME_SCREEN),
+        ),
+        buildItem(
+          Icons.settings,
+          'Filters',
+          () => openNewScreen(ctx,AppRoutes.FILTER_SCREEN),
+        ),
       ],
     );
   }
 
-  Widget buildItem(IconData icon, String text) {
+  void openNewScreen(BuildContext ctx,String path) {
+    AppRoutes.goToNextPage(ctx, path);
+  }
+
+  Widget buildItem(IconData icon, String text, VoidCallback tapHandler) {
     return ListTile(
       leading: Icon(
         icon,
@@ -54,9 +67,10 @@ class MainDrawer extends StatelessWidget {
         text,
         style: style,
       ),
+      onTap: tapHandler,
     );
   }
 
- final TextStyle style = const TextStyle(
+  final TextStyle style = const TextStyle(
       fontSize: 24, fontFamily: 'RobotoCondensed', fontWeight: FontWeight.bold);
 }

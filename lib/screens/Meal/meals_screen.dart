@@ -16,12 +16,12 @@ late Map<String,String> args;
   Widget build(BuildContext context) {
     
   Map<String,String> args =  ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-  String categoryTitle = args[CategoryItem.argsTitle] as String;
-  String categoryID = args[CategoryItem.argsId] as String;
+  final categoryTitle = args[CategoryItem.argsTitle];
+  final categoryID = args[CategoryItem.argsId];
 
     return Scaffold(
-      appBar: buildAppBar(categoryTitle),
-      body: body(context,categoryID),
+      appBar: buildAppBar(categoryTitle!),
+      body: body(context,categoryID!),
     );
   }
 

@@ -12,8 +12,8 @@ static const CATEGORY_SCREEN = "Category";
 static const HOME_SCREEN = "/";
 static const MEAL_DETAIL_SCREEN = "MealDetail";
 static const FAVOURITE_SCREEN = "FavoutiteCategory";
-static const MEAL_SCREEN = "Meal Screen";
-
+static const MEAL_SCREEN = "MealScreen";
+static const FILTER_SCREEN = "FilterScreen";
 
 
  static void goToNextPage(BuildContext ctx,String path,{Map<String,Object>? data}){

@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import './screens/Filter/filter_screen.dart';
 import './screens/favourite/favourite_screen.dart';
 import 'screens/Category/category_screen.dart';
 import 'Colors/colors.dart';
@@ -28,6 +29,7 @@ class App extends StatelessWidget {
       AppRoutes.MEAL_DETAIL_SCREEN: (ctx) => MealDetailScreen(),
       AppRoutes.FAVOURITE_SCREEN: (ctx) => FavouriteScreen(),
       AppRoutes.MEAL_SCREEN: (ctx) => MealScreen(),
+      AppRoutes.FILTER_SCREEN: (ctx) => FilterScreen()
     };
   }
 
