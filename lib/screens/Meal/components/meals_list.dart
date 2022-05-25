@@ -39,21 +39,21 @@ categoryMeals = DUMMY_MEALS.where(
 
     void removeItem(String mealID) {
       setState(() {
-        print(mealID);
+       
         categoryMeals.removeWhere(
           (element) {
             bool result = element.id == mealID;
-            print(result);
+           
             return result;
           },
         );
-        print(categoryMeals);
+     
       });
     }
 
     return ListView.builder(
       itemBuilder: (ctx, index) {
-        print(categoryMeals[index].title);
+    
         return MealItem(
           mealId: categoryMeals[index].id,
           mealTitle: categoryMeals[index].title,

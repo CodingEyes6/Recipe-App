@@ -17,7 +17,7 @@ late Map<String,String> args;
 
   @override
   Widget build(BuildContext context) {
-    
+   
   Map<String,String> args =  ModalRoute.of(context)!.settings.arguments as Map<String, String>;
   final categoryTitle = args[CategoryItem.argsTitle];
   final categoryID = args[CategoryItem.argsId];
@@ -29,6 +29,7 @@ late Map<String,String> args;
   }
 
   Widget body(String categoryID){
+   
     return MealsList(categoryID);
   }
 }
