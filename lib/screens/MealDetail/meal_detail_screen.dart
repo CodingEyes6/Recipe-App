@@ -7,6 +7,12 @@ import '../Meal/data/meals_data.dart';
 import '../../models/meals.dart';
 
 class MealDetailScreen extends StatelessWidget {
+
+ final Function toggleFavourite;
+ final Function isFavourite;
+
+ const MealDetailScreen(this.toggleFavourite,this.isFavourite);
+
   @override
   Widget build(BuildContext context) {
     String args = ModalRoute.of(context)!.settings.arguments as String;
@@ -25,8 +31,8 @@ class MealDetailScreen extends StatelessWidget {
 
   Widget buildfloatingActionButton(BuildContext ctx,String id) {
     return FloatingActionButton(
-      onPressed: () => goBacktoPreviousScreen(ctx,id),
-      child: const Icon(Icons.delete),
+      onPressed: () => toggleFavourite(id),
+      child: Icon(isFavourite(id) ? Icons.star : Icons.star_border),
     );
   }
 

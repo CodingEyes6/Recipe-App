@@ -52,21 +52,21 @@ class MealItem extends StatelessWidget {
   }
 
   void selectMeal(BuildContext ctx) {
-    Navigator.of(ctx)
-        .pushNamed(AppRoutes.MEAL_DETAIL_SCREEN, arguments: mealId)
-        .then(
-          (value) {
-            if(value != null){
-              removeMeal(value);
-            }
-          },
-        );
+    // Navigator.of(ctx)
+    //     .pushNamed(AppRoutes.MEAL_DETAIL_SCREEN, arguments: mealId)
+    //     .then(
+    //       (value) {
+    //         if(value != null){
+    //           removeMeal(value);
+    //         }
+    //       },
+    //     );
 
-    // AppRoutes.goToNextPageWIthArgs(
-    //   ctx,
-    //   AppRoutes.MEAL_DETAIL_SCREEN,
-    //   data: mealId,
-    // );
+    AppRoutes.goToNextPageWIthArgs(
+      ctx,
+      AppRoutes.MEAL_DETAIL_SCREEN,
+      data: mealId,
+    );
   }
 
   @override
