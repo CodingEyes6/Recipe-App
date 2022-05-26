@@ -29,60 +29,33 @@ class _AppState extends State<App> {
   };
 
   List<Meal> _availableMeals = DUMMY_MEALS;
-  
+
   void _setFilters(Map<String, bool> filtersData) {
-  
     setState(() {
       _filters = filtersData;
-List<String> names1 = [
-    'usama',
-    'haroon',
-     'arslan'
-  ];
-  
+    
 
-  
- List<String> d = names1;
-  print(names1);
-  d = names1.where((value) => value == 'haroon').toList();
-  
- print(d);
-  print(names1);
-
-
-    _availableMeals =  DUMMY_MEALS.where(
-            (meal) {
-           
-                if(_filters['gluten'] == true && !meal.isGlutenFree){
-              
       
-return false;
-            }
-             if(_filters['lactose'] as bool && !meal.isLactoseFree){
-return false;
-            }
-            if(_filters['vegan'] as bool && !meal.isVegan){
-return false;
-            }
 
-            if(_filters['vegetarian'] as bool && !meal.isVegetarian){
-              
-             
-              
-              
-return false;
-            }
-return true;
-            },
-          )
-          .toList();
-         
-          
-    }
-    
-    );
-       
-    
+      _availableMeals = DUMMY_MEALS.where(
+        (meal) {
+          if (_filters['gluten'] == true && !meal.isGlutenFree) {
+            return false;
+          }
+          if (_filters['lactose'] as bool && !meal.isLactoseFree) {
+            return false;
+          }
+          if (_filters['vegan'] as bool && !meal.isVegan) {
+            return false;
+          }
+
+          if (_filters['vegetarian'] as bool && !meal.isVegetarian) {
+            return false;
+          }
+          return true;
+        },
+      ).toList();
+    });
   }
 
   @override
@@ -100,7 +73,7 @@ return true;
       AppRoutes.MEAL_DETAIL_SCREEN: (ctx) => MealDetailScreen(),
       AppRoutes.FAVOURITE_SCREEN: (ctx) => FavouriteScreen(),
       AppRoutes.MEAL_SCREEN: (ctx) => MealScreen(_availableMeals),
-      AppRoutes.FILTER_SCREEN: (ctx) => FilterScreen(_setFilters)
+      AppRoutes.FILTER_SCREEN: (ctx) => FilterScreen(_setFilters,_filters)
     };
   }
 

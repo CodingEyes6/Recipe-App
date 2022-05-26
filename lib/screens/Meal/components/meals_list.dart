@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 
-import '../data/meals_data.dart';
+
 import 'meal_item.dart';
 import '../../../models/meals.dart';
 
 class MealsList extends StatefulWidget {
   final String categoryID;
- List<Meal> availbleMeals;
+ final List<Meal> availbleMeals;
 
-  MealsList(this.categoryID,this.availbleMeals);
+  const MealsList(this.categoryID,this.availbleMeals);
 
   @override
   State<MealsList> createState() => _MealsListState();

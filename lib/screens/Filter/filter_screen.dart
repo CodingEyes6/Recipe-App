@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import '../../styles/textstyles.dart';
 import '../tabs/Drawer/drawer.dart';
 
-import '../../components/appBar.dart';
+
 
 class FilterScreen extends StatefulWidget {
 
  final Function _saveFilters;
+ final Map<String,bool> currentFilters;
 
- const FilterScreen(this._saveFilters);
+ const FilterScreen(this._saveFilters,this.currentFilters);
+
+
+ 
 
   @override
   State<FilterScreen> createState() => _FilterScreenState();
@@ -20,6 +24,16 @@ class _FilterScreenState extends State<FilterScreen> {
   var _isVegetarian = false;
   var _isVegan = false;
 
+
+@override
+  void initState() {
+    super.initState();
+
+ _glutenFree = widget.currentFilters['gluten'] as bool;
+_lasctoseFree = widget.currentFilters['lactose'] as bool;
+_isVegan = widget.currentFilters['vegan'] as bool;
+_isVegetarian = widget.currentFilters['vegetarian'] as bool;
+  }
  
 
   @override
@@ -52,7 +66,7 @@ class _FilterScreenState extends State<FilterScreen> {
  
 
   Widget showSwitchesWithTitle() {
-    return Container(
+    return SizedBox(
       height: 300,
       child: ListView(
         children: [
