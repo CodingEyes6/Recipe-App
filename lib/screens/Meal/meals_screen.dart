@@ -6,13 +6,15 @@ import 'package:flutter/material.dart';
 import '../../components/appBar.dart';
 import '../Category/components/category_item.dart';
 import 'components/meals_list.dart';
-
+import '../../models/meals.dart';
 class MealScreen extends StatelessWidget {
 
  
 
 late Map<String,String> args;
+List<Meal> availbleMeals;
 
+MealScreen(this.availbleMeals);
 
 
   @override
@@ -30,6 +32,6 @@ late Map<String,String> args;
 
   Widget body(String categoryID){
    
-    return MealsList(categoryID);
+    return MealsList(categoryID,availbleMeals);
   }
 }

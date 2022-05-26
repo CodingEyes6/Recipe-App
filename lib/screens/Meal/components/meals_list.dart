@@ -6,8 +6,9 @@ import '../../../models/meals.dart';
 
 class MealsList extends StatefulWidget {
   final String categoryID;
+ List<Meal> availbleMeals;
 
-  const MealsList(this.categoryID);
+  MealsList(this.categoryID,this.availbleMeals);
 
   @override
   State<MealsList> createState() => _MealsListState();
@@ -21,7 +22,7 @@ late List<Meal> categoryMeals;
     @override
   void initState() {
     super.initState();
-categoryMeals = DUMMY_MEALS.where(
+categoryMeals = widget.availbleMeals.where(
       (meal) {
         return meal.categories.contains(widget.categoryID);
       },
