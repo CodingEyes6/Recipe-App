@@ -1,5 +1,7 @@
 # meals_app
-
+![alt text](https://github.com/CodingEyes6/Recipe-App/blob/main/categories.PNG)
+![alt text](https://github.com/CodingEyes6/Recipe-App/blob/main/meals.PNG)
+![alt text](https://github.com/CodingEyes6/Recipe-App/blob/main/meal%20details.PNG)
 A new Flutter project.
 
 ## Getting Started
